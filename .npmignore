@@ -1,0 +1,11 @@
+npm-debug*
+.idea/
+.vscode/
+demo/
+scrapyard/
+/test-html/
+/tools/
+/src/
+/readme-t-development.md
+/demo/
+/dist/VersionWebpackPlugin.min.js.LICENSE.txt

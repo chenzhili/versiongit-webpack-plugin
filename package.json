@@ -1,0 +1,32 @@
+{
+  "name": "versiongit-webpack-plugin",
+  "version": "1.0.2",
+  "main": "dist/VersiongitWebpackPlugin.min.js",
+  "license": "MIT",
+  "author": "chenzhili",
+  "scripts": {
+    "start": "babel-node tools/compile-watch.js",
+    "build": "eslint ./src/** && babel-node tools/compile.js",
+    "eslint": "eslint ./src/**",
+    "demo": "babel-node tools/compile-demo.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "chalk": "^4.1.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "gutil": "^1.6.4",
+    "semver": "^7.3.5",
+    "webpack": "^5.53.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.3.2"
+  }
+}

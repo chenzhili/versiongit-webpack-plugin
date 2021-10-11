@@ -162,7 +162,7 @@ export class VersiongitWebpackPlugin {
   /* 获取 有关 git 相关 版本信息 */
   async getCommitLog(result = {}) {
     const commitMSG = 'describe --always'
-    const dateMSG = 'show --pretty=format:"%ci %cr" | head -1'
+    const dateMSG = 'show --pretty=format:"%ci %cr"'
     try {
       let cmt = await gitCMD(commitMSG, this.options.git_url)
       const date = await gitCMD(dateMSG, this.options.git_url)
@@ -177,7 +177,7 @@ export class VersiongitWebpackPlugin {
         }
       }
       if (date) {
-        result.date = date.slice(0, -1)
+        result.date = date.split('\n')[0]
       }
       console.log(chalk.green('git message success'))
     } catch (error) {

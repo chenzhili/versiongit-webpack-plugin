@@ -24,6 +24,7 @@
 > 4. 键入 desc 用于生成 description.json 用于记录更新信息
 
 ## example
+> 1. 普通的 webpack 应用中的使用
 ```javascript
   const path = require('path')
   const { VersiongitWebpackPlugin } = require('versiongit-webpack-plugin')
@@ -40,3 +41,25 @@
     }
   })
 ```
+> 2. 如果是想在 vue-cli 应用中使用
+```javascript
+  // 找到 对应的 vue.config.js 中的 configureWebpack => plugins 中
+  // 在上面的 基础上，默认的 vue-cli-service build 的 时候 默认 会 打包两次包括 legacy bundle和 prod bundle；
+  const isLegacyBundle = process.env.VUE_CLI_MODERN_MODE && !process.env.VUE_CLI_MODERN_BUILD 
+  const path = require('path')
+  const { VersiongitWebpackPlugin } = require('versiongit-webpack-plugin')
+  new VersiongitWebpackPlugin({
+    package_url: path.resolve(__dirname, '../package.json'), // package.json的路径
+    git_url: path.resolve(__dirname, './'), // .git文件的路径
+    enable: process.env.NODE_ENV === 'production' && !isLegacyBundle, // 是否开启 版本 只能在 build 的时候开启
+    desc: {
+      update: {
+        1: '更新信息1',
+        2: '更新信息2',
+        3: '更新信息3'
+      }
+    }
+  })
+```
+
+
